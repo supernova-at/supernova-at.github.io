@@ -1,1 +1,3 @@
-module.exports = 'It works from content.js';
+module.exports = {
+	theString : 'It works from content.js'
+};

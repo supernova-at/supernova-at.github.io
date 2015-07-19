@@ -44,13 +44,17 @@
 /* 0 */
 /***/ function(module, exports, __webpack_require__) {
 
-	document.write(__webpack_require__(1));
+	var content_module = __webpack_require__(1);
+
+	document.write(content_module.theString);
 
 /***/ },
 /* 1 */
 /***/ function(module, exports) {
 
-	module.exports = 'It works from content.js';
+	module.exports = {
+		theString : 'It works from content.js'
+	};
 
 /***/ }
 /******/ ]);
