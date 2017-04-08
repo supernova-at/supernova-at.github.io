@@ -1,0 +1,35 @@
+<!doctype html>
+<html>
+  <head>
+    <style>
+      .banner {
+        display: flex;
+        justify-content: space-around;
+        align-items: center;
+      }
+    </style>
+
+    <!-- Babel -->
+    <script src="https://unpkg.com/babel-standalone@6/babel.min.js"></script>
+    <!-- React & ReactDOM -->
+    <script src="https://unpkg.com/react@15/dist/react.js"></script>
+    <script src="https://unpkg.com/react-dom@15/dist/react-dom.js"></script>
+  </head>
+  <body>
+    <h1>Genetic Ice Hockey Demo</h1>
+    <div class="banner">
+      <img alt="Skinny Hockey Player" src="https://github.com/supernova-at/supernova-at.github.io/raw/master/genetic-ice-hockey/images/skinny.png" />
+      <img alt="Medium Hockey Player" src="https://github.com/supernova-at/supernova-at.github.io/raw/master/genetic-ice-hockey/images/medium.png" />
+      <img alt="Fat Hockey Player" src="https://github.com/supernova-at/supernova-at.github.io/raw/master/genetic-ice-hockey/images/fat.png" />
+    </div>
+  </body>
+</html>
+
+
+<div id="output"></div>
+
+<!-- Your custom script here -->
+<script type="text/babel">
+const getMessage = () => "Hello World";
+document.getElementById('output').innerHTML = getMessage();
+</script>
