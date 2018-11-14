@@ -1,0 +1,25 @@
+<!doctype html>
+<html>
+  <head>
+    <title>My First PWA</title>
+    <script>
+      if ('serviceWorker' in navigator) {
+        window.addEventListener('load', function() {
+          navigator.serviceWorker.register('/first/service-worker.js')
+            .then(function(registration) {
+                // Registration was successful
+                console.log('ServiceWorker registration successful with scope: ', registration.scope);
+              },
+              function(err) {
+                // registration failed :(
+                console.log('ServiceWorker registration failed: ', err);
+            });
+        });
+      }
+  </script>
+  </head>
+  <body>
+    <h1>Service Workers</h1>
+    <span>This page follows <a href="https://developers.google.com/web/fundamentals/primers/service-workers/">Google's Service Workers</a> tutorial.</span>
+  </body>
+</html>
