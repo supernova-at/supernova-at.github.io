@@ -4,17 +4,26 @@
     <title>User Timings API Demo</title>
     <script>
         /* Mark. */
+        const markCounter = 0;
         function doMark () {
-            performance.mark('button-click');
+            const name = `click-${markCounter}`;
+            performance.mark(name);
+
+            markCounter++;
         }
 
         /* Measure. */
         function doMeasure() {
-            performance.measure(
-                'time-to-first-click',
-                'first-paint',
-                'button-click'
-            );
+            try {
+                performance.measure(
+                    'time-between-clicks',
+                    'click-0',
+                    'click-1'
+                );
+            }
+            catch (e) {
+                alert('Gotta click the button twice!');
+            }
         }
     </script>
     <style>
@@ -22,12 +31,28 @@
             width: 25vw;
             height: 25vh;
             background-color: plum;
+            border-radius: 15%;
+            border: solid 2px navy;
         }
     </style>
   </head>
   <body>
-      <button type="button" onclick="doMark()">Make a Mark</button>
-      <hr />
-      <button type="button" onclick="doMeasure()">Perform Measurement</button>
+        <button
+            id="btn-mark"
+            type="button"
+            onclick="doMark()"
+        >
+            Make Mark
+        </button>
+
+        <hr />
+
+        <button 
+            id="btn-measure"
+            type="button"
+            onclick="doMeasure()"
+        >
+            Perform Measurement
+        </button>
   </body>
 </html>
