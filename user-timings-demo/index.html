@@ -3,14 +3,31 @@
   <head>
     <title>User Timings API Demo</title>
     <script>
-        const counter = 0;
+        /* Mark. */
         function doMark () {
-            const name = `mark-${counter}`;
-            performance.mark(name);
+            performance.mark('button-click');
+        }
+
+        /* Measure. */
+        function doMeasure() {
+            performance.measure(
+                'time-to-first-click',
+                'first-paint',
+                'button-click'
+            );
         }
     </script>
+    <style>
+        button {
+            width: 25vw;
+            height: 25vh;
+            background-color: plum;
+        }
+    </style>
   </head>
   <body>
-      <button onclick="doMark()">Make a Mark</button>
+      <button type="button" onclick="doMark()">Make a Mark</button>
+      <hr />
+      <button type="button" onclick="doMeasure()">Perform Measurement</button>
   </body>
 </html>
