@@ -1,0 +1,16 @@
+<!doctype html>
+<html lang="en">
+  <head>
+    <title>User Timings API Demo</title>
+    <script>
+        const counter = 0;
+        function doMark () {
+            const name = `mark-${counter}`;
+            performance.mark(name);
+        }
+    </script>
+  </head>
+  <body>
+      <button onclick="doMark()">Make a Mark</button>
+  </body>
+</html>
