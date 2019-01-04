@@ -2,36 +2,7 @@
 <html lang="en">
   <head>
     <title>User Timings API Demo</title>
-    <script>
-        /* Mark. */
-        let markCounter = 0;
-        function doMark () {
-            const name = `click-${markCounter}`;
-            performance.mark(name);
 
-            markCounter++;
-
-            // For Demo purposes.
-            console.log('Logged a mark', performance.getEntriesByName(name));
-        }
-
-        /* Measure. */
-        function doMeasure() {
-            try {
-                performance.measure(
-                    'time-between-clicks',
-                    'click-0',
-                    'click-1'
-                );
-
-                // For Demo purposes.
-                console.log('Performed a measurement', performance.getEntriesByName(name));
-            }
-            catch (e) {
-                alert('Gotta click the button twice!');
-            }
-        }
-    </script>
     <style>
         button {
             width: 25vw;
@@ -45,20 +16,24 @@
         }
 
         code {
-            background-color: silver;
-            padding: 3px 0px;
+            background-color: lightgray;
+            padding: 5px;
         }
 
         div {
             display: flex;
             justify-content: space-around;
         }
+
+        #output {
+            display: none;
+        }
     </style>
   </head>
   <body>
         <h1>User Timings API Demo</h1>
         <p>
-            Performance <code>marks</code> and <code>measures</code.
+            Performance <code>marks</code> and <code>measures</code>.
         </p>
 
         <div>
@@ -76,5 +51,44 @@
                 Perform Measurement
             </button>
         </div>
+
+        <p id="output"></p>
+
+        <script>
+            const output_el = document.getElementById('output');
+    
+            /* Mark. */
+            let markCounter = 0;
+            function doMark () {
+                const name = `click-${markCounter}`;
+                performance.mark(name);
+    
+                markCounter++;
+    
+                // For Demo purposes.
+                console.log('Logged a mark', performance.getEntriesByName(name));
+            }
+    
+            /* Measure. */
+            function doMeasure() {
+                try {
+                    performance.measure(
+                        'time-between-clicks',
+                        'click-0',
+                        'click-1'
+                    );
+    
+                    const measurement = performance.getEntriesByName('time-between-clicks');
+                    output_el.innerText = `The time between clicks was ${measurement.duration} ms.`;
+                    output_el.style.display = 'block';
+    
+                    // For Demo purposes.
+                    console.log('Performed a measurement', measurement);
+                }
+                catch (e) {
+                    alert('Gotta click the button twice!');
+                }
+            }
+        </script>
   </body>
 </html>
