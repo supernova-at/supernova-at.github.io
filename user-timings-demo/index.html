@@ -4,7 +4,7 @@
     <title>User Timings API Demo</title>
     <script>
         /* Mark. */
-        const markCounter = 0;
+        let markCounter = 0;
         function doMark () {
             const name = `click-${markCounter}`;
             performance.mark(name);
@@ -30,15 +30,18 @@
         button {
             width: 25vw;
             height: 25vh;
+            font-size: larger;
+            
             background-color: plum;
             border-radius: 15%;
             border: solid 2px navy;
+            color: navy;
         }
     </style>
   </head>
   <body>
+        <h2>Mark</h2>
         <button
-            id="btn-mark"
             type="button"
             onclick="doMark()"
         >
@@ -47,8 +50,8 @@
 
         <hr />
 
-        <button 
-            id="btn-measure"
+        <h2>Measure</h2>
+        <button
             type="button"
             onclick="doMeasure()"
         >
