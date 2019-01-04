@@ -10,6 +10,9 @@
             performance.mark(name);
 
             markCounter++;
+
+            // For Demo purposes.
+            console.log('Logged a mark', performance.getEntriesByName(name));
         }
 
         /* Measure. */
@@ -20,6 +23,9 @@
                     'click-0',
                     'click-1'
                 );
+
+                // For Demo purposes.
+                console.log('Performed a measurement', performance.getEntriesByName(name));
             }
             catch (e) {
                 alert('Gotta click the button twice!');
@@ -37,25 +43,38 @@
             border: solid 2px navy;
             color: navy;
         }
+
+        code {
+            background-color: silver;
+            padding: 3px 0px;
+        }
+
+        div {
+            display: flex;
+            justify-content: space-around;
+        }
     </style>
   </head>
   <body>
-        <h2>Mark</h2>
-        <button
-            type="button"
-            onclick="doMark()"
-        >
-            Make Mark
-        </button>
+        <h1>User Timings API Demo</h1>
+        <p>
+            Performance <code>marks</code> and <code>measures</code.
+        </p>
 
-        <hr />
-
-        <h2>Measure</h2>
-        <button
-            type="button"
-            onclick="doMeasure()"
-        >
-            Perform Measurement
-        </button>
+        <div>
+            <button
+                type="button"
+                onclick="doMark()"
+            >
+                Make Mark
+            </button>
+    
+            <button
+                type="button"
+                onclick="doMeasure()"
+            >
+                Perform Measurement
+            </button>
+        </div>
   </body>
 </html>
