@@ -78,7 +78,7 @@
                         'click-1'
                     );
     
-                    const measurement = performance.getEntriesByName('time-between-clicks');
+                    const measurement = performance.getEntriesByName('time-between-clicks')[0];
                     output_el.innerText = `The time between clicks was ${measurement.duration} ms.`;
                     output_el.style.display = 'block';
     
